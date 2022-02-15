@@ -1,0 +1,108 @@
+body{
+  text-align:center;
+  margin: 0;
+}
+
+div{
+  background-color: #E8F0F2;
+  border-color: black;
+}
+
+h1{
+  margin-top: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 700%;
+  color:#161E54;
+}
+.btcloud{
+  position: absolute;
+}
+.tpcloud{
+  margin-left: 400px;
+  margin-top: 50px;
+}
+p{
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-size: 200%;
+}
+h2{
+  font-weight: normal;
+  font-family: 'Courgette', cursive;
+  font-size: 500%;
+  color: #053742;
+}
+h3{
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-size: 300%;
+}
+.pfp{
+  margin-top: 100px;
+  border-radius: 100%;
+  width: 300px;
+}
+.skill-row{
+width:50%;
+  margin:0 auto 0 auto;
+}
+.intro{
+  width: 50%;
+  margin:0 auto 0 auto;
+}
+.adhd{
+  float: left;
+  border-radius: 40%;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width:50%;
+}
+.coding{
+  float: right;
+  border-radius: 40%;
+  margin-left: 30px;
+  margin-bottom: 100px;
+  margin-top: 30px;
+  width:50%;
+}
+.bottom-container{
+  padding-top:50px;
+  color: #39A2DB;
+  background-color: #A2DBFA;
+}
+.front{
+  background-color: #A2DBFA;
+}
+hr{
+  border-style: none;
+  border-color: grey;
+  height: 5px;
+  border-top: 10px dotted;
+  margin: 60px 600px 10px 600px;
+}
+.btn{
+  background-image: linear-gradient(to bottom, #A2DBFA, #39A2DB);
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-weight: 700;
+  color: #053742;
+  font-size:125%;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.contact-me{
+  padding-bottom: 50px;
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+.tdm{
+  margin-bottom: 0;
+}
+.footer-link{
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-weight: 700;
+  margin:60px;
+  font-size: 150%;
+  text-decoration: none;
+  color:#39A2DB;
+
+}
