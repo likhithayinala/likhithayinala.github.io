@@ -203,25 +203,14 @@ for (var i = 0; i < coll.length; i++) {
 /*----------------------------------------------------*/
 /*	Collapsible Section
 /*----------------------------------------------------*/
-const collapsibles = document.getElementsByClassName("collapsible");
-
-// Add click event listener to each collapsible element
-for (let collapsible of collapsibles) {
-    collapsible.addEventListener("click", function() {
-        // Toggle active class
-        this.classList.toggle("active");
-        
-        // Get the content element
-        const content = this.nextElementSibling;
-        
-        // Toggle the content visibility
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
-    });
-}
+function toggleText(elementid) {
+   const hiddenText = document.getElementById(elementid);
+   if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+     hiddenText.style.display = "block"; // Show the text
+   } else {
+     hiddenText.style.display = "none"; // Hide the text
+   }
+ }
 
 
 

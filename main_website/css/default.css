@@ -87,7 +87,7 @@ pre {
    word-wrap: break-word;
 }
 
-blockquote, q { quotes: &#8220 &#8220; }
+blockquote, q { quotes: "“" "”"; }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -803,5 +803,9 @@ properly.
 }
 
 
+h1.responsive-headline { text-align: left; font-size: 5em; margin-bottom: 2cm; text-decoration: underline; cursor: pointer;}
+h1.responsive-headline 
 
-
+#hidden-content {
+   display: none;
+}

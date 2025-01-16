@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H1 as Button to Reveal Text</title>
+  <style>
+    /* Style the h1 to look like a button */
+    h1.button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 2rem;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none; /* Remove underline */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Hover effect */
+    h1.button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Active effect */
+    h1.button:active {
+      transform: scale(0.98);
+    }
+
+    /* Initially hide the text */
+    #hiddenText {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <!-- H1 acting as a button -->
+  <h1 class="button" onclick="toggleText()">Click to Reveal Text</h1>
+
+  <!-- Hidden text -->
+  <div id="hiddenText">
+    <p>This is the text that was hidden! You can reveal and hide this by clicking the H1 button.</p>
+  </div>
+
+  <script>
+    // JavaScript function to toggle the visibility of the text
+    function toggleText() {
+      const hiddenText = document.getElementById("hiddenText");
+      if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+        hiddenText.style.display = "block"; // Show the text
+      } else {
+        hiddenText.style.display = "none"; // Hide the text
+      }
+    }
+  </script>
+</body>
+</html>
