@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <canvas id="matrix-canvas" class="matrix-rain"></canvas>
+    <canvas id="noise-canvas"></canvas>
+    <div class="corruption-overlay"></div>
+    
+    <div id="page1" class="page">
+        <h1>SYSTEM_INIT()</h1>
+        <button onclick="transitionToPage('page2')">EXECUTE_TRANSFER</button>
+    </div>
+    
+    <div id="page2" class="page" style="display: none;">
+        <h1>SYSTEM_LOADED</h1>
+        <button onclick="transitionToPage('page1')">RETURN_HOME</button>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const matrixCanvas = document.getElementById('matrix-canvas');
+        const matrixCtx = matrixCanvas.getContext('2d');
+        
+        function setupMatrix() {
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+            
+            const characters = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+            const fontSize = 16;
+            const columns = matrixCanvas.width/fontSize;
+            const drops = [];
+            
+            for(let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+
+            function drawMatrix() {
+                matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                
+                matrixCtx.fillStyle = '#0F0';
+                matrixCtx.font = fontSize + 'px monospace';
+                
+                for(let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    matrixCtx.fillText(text, i*fontSize, drops[i]*fontSize);
+                    
+                    if(drops[i]*fontSize > matrixCanvas.height && Math.random() > 0.975)
+                        drops[i] = 0;
+                    
+                    drops[i]++;
+                }
+            }
+            
+            return drawMatrix;
+        }
+
+        // Noise effect
+        const noiseCanvas = document.getElementById('noise-canvas');
+        const noiseCtx = noiseCanvas.getContext('2d');
+        
+        function resizeCanvas() {
+            noiseCanvas.width = window.innerWidth;
+            noiseCanvas.height = window.innerHeight;
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function createNoise() {
+            const imageData = noiseCtx.createImageData(noiseCanvas.width, noiseCanvas.height);
+            const data = imageData.data;
+            
+            for (let i = 0; i < data.length; i += 4) {
+                const value = Math.random() * 255;
+                const color = Math.random() > 0.5 ? [255, 45, 85] : [0, 255, 249]; // Cyberpunk colors
+                data[i] = color[0];     // red
+                data[i + 1] = color[1]; // green
+                data[i + 2] = color[2]; // blue
+                data[i + 3] = 50;       // alpha
+            }
+            
+            noiseCtx.putImageData(imageData, 0, 0);
+        }
+
+        const drawMatrix = setupMatrix();
+        let matrixInterval;
+
+        function transitionToPage(targetPageId) {
+            const currentPage = document.querySelector('.page:not([style*="display: none"])');
+            const targetPage = document.getElementById(targetPageId);
+            const noiseCanvas = document.getElementById('noise-canvas');
+            const matrixCanvas = document.getElementById('matrix-canvas');
+            if (currentPage === targetPage) return;
+
+            // Start corruption
+            currentPage.classList.add('corrupted');
+            noiseCanvas.style.opacity = '1';
+            matrixCanvas.style.opacity = '0.5';
+            
+            // Create effects
+            let noiseInterval = setInterval(createNoise, 50);
+            matrixInterval = setInterval(drawMatrix, 50);
+            
+            // After corruption phase
+            setTimeout(() => {
+                // Hide current page
+                currentPage.style.display = 'none';
+                currentPage.classList.remove('corrupted');
+                
+                // Show target page with restoration effect
+                targetPage.style.display = 'block';
+                targetPage.classList.add('restoring');
+                
+                // Fade out effects
+                setTimeout(() => {
+                    clearInterval(noiseInterval);
+                    clearInterval(matrixInterval);
+                    noiseCanvas.style.opacity = '0';
+                    matrixCanvas.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        targetPage.classList.remove('restoring');
+                    }, 800);
+                }, 500);
+            }, 800);
+        }
+    </script>
+</body>
+</html>

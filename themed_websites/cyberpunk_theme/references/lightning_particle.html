@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* ... (previous styles remain) ... */
+
+        /* Electric Shock Effect */
+        .lightning-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 995;
+        }
+
+        .lightning {
+            position: absolute;
+            background: none;
+            pointer-events: none;
+        }
+
+        .lightning path {
+            stroke: var(--neon-blue);
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 0 5px var(--neon-blue));
+            opacity: 0;
+            animation: shockFade 0.5s ease-out forwards;
+        }
+
+        @keyframes shockFade {
+            0% {
+                opacity: 1;
+                stroke-dashoffset: 1000;
+            }
+            20% {
+                opacity: 0.8;
+                stroke: var(--neon-pink);
+            }
+            40% {
+                opacity: 0.6;
+                stroke: var(--neon-blue);
+            }
+            100% {
+                opacity: 0;
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ... (previous elements remain) ... -->
+    <div class="lightning-container"></div>
+
+    <script>
+        // ... (previous script remains) ...
+
+        // Lightning/Shock Effect System
+        class LightningEffect {
+            constructor(container) {
+                this.container = container;
+                this.svgNS = "http://www.w3.org/2000/svg";
+            }
+
+            createLightning(startX, startY) {
+                const svg = document.createElementNS(this.svgNS, "svg");
+                svg.setAttribute("class", "lightning");
+                svg.style.left = "0";
+                svg.style.top = "0";
+                svg.style.width = "100%";
+                svg.style.height = "100%";
+
+                // Create multiple branches
+                const branches = this.generateBranches(startX, startY);
+                
+                const path = document.createElementNS(this.svgNS, "path");
+                path.setAttribute("d", branches);
+                
+                svg.appendChild(path);
+                this.container.appendChild(svg);
+
+                // Remove after animation
+                setTimeout(() => {
+                    svg.remove();
+                }, 500);
+            }
+
+            generateBranches(startX, startY) {
+                let paths = [];
+                const mainBranch = this.generateBranchPath(startX, startY, 0);
+                paths.push(mainBranch);
+
+                // Generate 2-3 sub-branches
+                const numBranches = 2 + Math.floor(Math.random() * 2);
+                
+                for (let i = 0; i < numBranches; i++) {
+                    const branchPoint = Math.random() * 0.5 + 0.25; // Branch between 25-75% of main path
+                    const mainPoints = mainBranch.split(" ");
+                    const branchIndex = Math.floor(mainPoints.length * branchPoint);
+                    const branchStart = mainPoints[branchIndex].split(",");
+                    
+                    const subBranch = this.generateBranchPath(
+                        parseFloat(branchStart[0]),
+                        parseFloat(branchStart[1]),
+                        (Math.random() - 0.5) * Math.PI/2 // Random angle deviation
+                    );
+                    paths.push(subBranch);
+                }
+
+                return paths.join(" ");
+            }
+
+            generateBranchPath(startX, startY, angleOffset) {
+                let path = `M ${startX},${startY}`;
+                let currentX = startX;
+                let currentY = startY;
+                let angle = Math.PI/2 + angleOffset; // Base angle (downward) + offset
+                
+                const segments = 5 + Math.floor(Math.random() * 5); // 5-10 segments
+                const maxLength = 100; // Maximum length of each segment
+                
+                for (let i = 0; i < segments; i++) {
+                    // Randomize the angle slightly for each segment
+                    angle += (Math.random() - 0.5) * Math.PI/3;
+                    
+                    const length = Math.random() * maxLength * (1 - i/segments); // Shorter segments towards the end
+                    currentX += Math.cos(angle) * length;
+                    currentY += Math.sin(angle) * length;
+                    
+                    path += ` L ${currentX},${currentY}`;
+                }
+                
+                return path;
+            }
+        }
+
+        // Initialize Lightning Effect
+        const lightningContainer = document.querySelector('.lightning-container');
+        const lightning = new LightningEffect(lightningContainer);
+
+        // Create lightning on mouse move
+        let lastShockTime = 0;
+        document.addEventListener('mousemove', (e) => {
+            const currentTime = Date.now();
+            if (currentTime - lastShockTime > 100) { // Limit to one shock every 100ms
+                lightning.createLightning(e.clientX, e.clientY);
+                lastShockTime = currentTime;
+            }
+        });
+
+        // Create random lightning occasionally
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            lightning.createLightning(x, y);
+        }, 3000);
+    </script>
+</body>
+</html>

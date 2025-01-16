@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* ... (previous styles remain) ... */
+
+        .circuit-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 995;
+        }
+
+        .circuit-path {
+            position: absolute;
+            background: none;
+            pointer-events: none;
+        }
+
+        .circuit-path path {
+            stroke: var(--neon-blue);
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 0 3px var(--neon-blue));
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: circuitFlow 2s ease-out forwards;
+        }
+
+        .circuit-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            filter: drop-shadow(0 0 2px var(--neon-blue));
+            opacity: 0;
+            animation: nodeGlow 2s ease-out forwards;
+        }
+
+        @keyframes circuitFlow {
+            0% {
+                stroke-dashoffset: 1000;
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes nodeGlow {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+        }
+
+        /* Background circuit pattern */
+        .circuit-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0,255,249,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,255,249,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+        }
+
+        .circuit-dot {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0,255,249,0.2);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- ... (previous elements remain) ... -->
+    <div class="circuit-background"></div>
+    <div class="circuit-container"></div>
+
+    <script>
+        class CircuitEffect {
+            constructor(container) {
+                this.container = container;
+                this.svgNS = "http://www.w3.org/2000/svg";
+                this.circuits = new Set();
+                this.setupBackgroundDots();
+            }
+
+            setupBackgroundDots() {
+                const background = document.querySelector('.circuit-background');
+                const dotCount = 100;
+                
+                for (let i = 0; i < dotCount; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'circuit-dot';
+                    dot.style.left = `${Math.random() * 100}%`;
+                    dot.style.top = `${Math.random() * 100}%`;
+                    background.appendChild(dot);
+                }
+            }
+
+            createCircuit(startX, startY) {
+                const svg = document.createElementNS(this.svgNS, "svg");
+                svg.setAttribute("class", "circuit-path");
+                svg.style.left = "0";
+                svg.style.top = "0";
+                svg.style.width = "100%";
+                svg.style.height = "100%";
+
+                // Create circuit paths
+                const paths = this.generateCircuitPaths(startX, startY);
+                
+                // Add all paths to SVG
+                paths.forEach(pathData => {
+                    const path = document.createElementNS(this.svgNS, "path");
+                    path.setAttribute("d", pathData.path);
+                    svg.appendChild(path);
+
+                    // Create nodes at path endpoints
+                    this.createNode(pathData.endX, pathData.endY);
+                });
+
+                this.container.appendChild(svg);
+                this.circuits.add(svg);
+
+                // Remove after animation
+                setTimeout(() => {
+                    svg.remove();
+                    this.circuits.delete(svg);
+                }, 2000);
+            }
+
+            createNode(x, y) {
+                const node = document.createElement('div');
+                node.className = 'circuit-node';
+                node.style.left = `${x - 2}px`;
+                node.style.top = `${y - 2}px`;
+                this.container.appendChild(node);
+
+                setTimeout(() => node.remove(), 2000);
+            }
+
+            generateCircuitPaths(startX, startY) {
+                const paths = [];
+                const branches = 2 + Math.floor(Math.random() * 3); // 2-4 branches
+
+                for (let i = 0; i < branches; i++) {
+                    const angle = (i * 2 * Math.PI / branches) + Math.random() * Math.PI/4;
+                    paths.push(this.generateSinglePath(startX, startY, angle));
+                }
+
+                return paths;
+            }
+
+            generateSinglePath(startX, startY, baseAngle) {
+                let path = `M ${startX},${startY}`;
+                let currentX = startX;
+                let currentY = startY;
+                
+                const segments = 3 + Math.floor(Math.random() * 3);
+                let segmentLength = 30 + Math.random() * 50;
+
+                for (let i = 0; i < segments; i++) {
+                    // Ensure 90-degree turns
+                    const direction = Math.round((baseAngle + (Math.random() < 0.5 ? Math.PI/2 : -Math.PI/2)) / (Math.PI/2)) * (Math.PI/2);
+                    
+                    currentX += Math.cos(direction) * segmentLength;
+                    currentY += Math.sin(direction) * segmentLength;
+                    
+                    path += ` L ${currentX},${currentY}`;
+                    segmentLength *= 0.8; // Each segment gets shorter
+                }
+
+                return {
+                    path: path,
+                    endX: currentX,
+                    endY: currentY
+                };
+            }
+        }
+
+        // Initialize Circuit Effect
+        const circuitContainer = document.querySelector('.circuit-container');
+        const circuit = new CircuitEffect(circuitContainer);
+
+        // Create circuits on mouse move
+        let lastCircuitTime = 0;
+        document.addEventListener('mousemove', (e) => {
+            const currentTime = Date.now();
+            if (currentTime - lastCircuitTime > 200) { // Limit to one circuit every 200ms
+                circuit.createCircuit(e.clientX, e.clientY);
+                lastCircuitTime = currentTime;
+            }
+        });
+
+        // Create random circuits occasionally
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            circuit.createCircuit(x, y);
+        }, 4000);
+    </script>
+</body>
+</html>

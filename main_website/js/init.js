@@ -20,7 +20,7 @@
 ------------------------------------------------------ */
 
    $('.smoothscroll').on('click',function (e) {
-	    e.preventDefault();
+	    
 
 	    var target = this.hash,
 	    $target = $(target);
@@ -31,6 +31,26 @@
 	        window.location.hash = target;
 	    });
 	});
+/*----------------------------------------------------*/
+/* Collapsible Section
+/*----------------------------------------------------*/
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (var i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        
+        if (content.style.maxHeight){
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+}
+
+
 
 
 /*----------------------------------------------------*/
@@ -180,7 +200,28 @@
 });
 
 
+/*----------------------------------------------------*/
+/*	Collapsible Section
+/*----------------------------------------------------*/
+const collapsibles = document.getElementsByClassName("collapsible");
 
+// Add click event listener to each collapsible element
+for (let collapsible of collapsibles) {
+    collapsible.addEventListener("click", function() {
+        // Toggle active class
+        this.classList.toggle("active");
+        
+        // Get the content element
+        const content = this.nextElementSibling;
+        
+        // Toggle the content visibility
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+}
 
 
 

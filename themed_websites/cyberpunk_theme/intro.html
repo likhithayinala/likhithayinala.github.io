@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/modernizr.js"></script>
+    <title>Intro Page</title>
+</head>
+<body>
+    <div class="navbar">
+        <a onclick="transitionToPage('intro')" href="#home">Tutorial</a>
+        <a onclick="transitionToPage('main')" href="#about">Main Quest</a>
+        <a onclick="transitionToPage('hobbies')" href="#contact">Side Quests</a>
+    </div> 
+    <div class="scan-lines"></div>
+    <div class="static-overlay"></div>
+    <div class="color-shift"></div>
+    <div class="glitch-lines">
+        <div class="glitch-line" style="animation-delay: 0s"></div>
+        <div class="glitch-line" style="animation-delay: 2s"></div>
+        <div class="glitch-line" style="animation-delay: 4s"></div>
+        <div class="glitch-line" style="animation-delay: 6s"></div>
+    </div>
+    <canvas id="matrix-canvas" class="matrix-rain"></canvas>
+    <canvas id="noise-canvas"></canvas>
+    <div class="corruption-overlay"></div>
+    <canvas id="canvas"></canvas>
+
+    <div id="intro" class="page">
+        <div class="content">
+            <h1>I'm Likhith</h1>
+            <p>I am doing my masters in Electrical Engineering at Columbia University. I am interested in multi-modal AI systems (currently exploring agentic applications), with a focus on using these amazing algorithms to tackle social challenges.</p>
+        </div>
+    </div>
+    
+    <div id="main" class="page" style="display: none;">
+        <div class="content">
+            <h1>Career Page</h1>
+            <p>This is a basic introduction page with a navigation bar on top.</p>
+        </div>
+    </div>
+
+
+    <div id="hobbies" class="page" style="display: none;">
+        <div class="content">
+            <h1>Hobbies</h1>
+            <p>This is a basic introduction page with a navigation bar on top.</p>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/init.js"></script>
+</body>
+</html>
