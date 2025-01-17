@@ -62,3 +62,550 @@
   </script>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Transition</title>
+    <style>
+        .transition-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+        }
+
+        .transition-piece {
+            position: absolute;
+            background: currentColor;
+            transform-origin: center;
+            opacity: 0;
+        }
+
+        @keyframes rectangleOut {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scaleY(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) scaleY(3);
+            }
+        }
+
+        @keyframes rectangleIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-100vh) scaleY(3);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scaleY(1);
+            }
+        }
+
+        .theme-button {
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        #cyberpunkContent {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-button" onclick="triggerTransition()">Switch to Cyberpunk</button>
+    
+    <div class="transition-container" id="transitionContainer"></div>
+
+    <script>
+        function createTransitionPieces() {
+            const container = document.getElementById('transitionContainer');
+            const numColumns = 8;
+            const numRows = 6;
+            const width = window.innerWidth / numColumns;
+            const height = window.innerHeight / numRows;
+            
+            container.innerHTML = '';
+            
+            for (let i = 0; i < numColumns; i++) {
+                for (let j = 0; j < numRows; j++) {
+                    const piece = document.createElement('div');
+                    piece.className = 'transition-piece';
+                    piece.style.left = `${i * width}px`;
+                    piece.style.top = `${j * height}px`;
+                    piece.style.width = `${width}px`;
+                    piece.style.height = `${height}px`;
+                    container.appendChild(piece);
+                }
+            }
+        }
+
+        function triggerTransition() {
+            const container = document.getElementById('transitionContainer');
+            container.style.display = 'block';
+            
+            // Create fresh transition pieces
+            createTransitionPieces();
+            const pieces = document.querySelectorAll('.transition-piece');
+            
+            // First transition out
+            pieces.forEach((piece, index) => {
+                piece.style.animation = `rectangleOut 1s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s forwards`;
+                piece.style.backgroundColor = getComputedStyle(document.body).backgroundColor;
+            });
+
+            // Switch to cyberpunk theme halfway through
+            setTimeout(() => {
+                // This is where you would trigger the switch to your cyberpunk page
+                window.location.href = 'your-cyberpunk-page.html';
+                
+                // For demo purposes, we'll just change colors
+                document.body.style.backgroundColor = '#0a0a0a';
+                
+                // Transition pieces back in
+                pieces.forEach((piece, index) => {
+                    piece.style.backgroundColor = '#0a0a0a';
+                    piece.style.animation = `rectangleIn 1s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s forwards`;
+                });
+            }, 1000);
+
+            // Clean up
+            setTimeout(() => {
+                container.style.display = 'none';
+            }, 2500);
+        }
+
+        // Initialize on load
+        window.addEventListener('load', createTransitionPieces);
+        window.addEventListener('resize', createTransitionPieces);
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitch Melting Transition</title>
+    <style>
+        .content-element {
+            margin: 20px;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .melt-clone {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            transform-origin: top;
+            will-change: transform, filter, opacity;
+        }
+
+        @keyframes glitch {
+            0% {
+                filter: hue-rotate(0deg) saturate(100%);
+                transform: translateX(0);
+            }
+            10% {
+                filter: hue-rotate(45deg) saturate(200%) brightness(150%);
+                transform: translateX(2px);
+            }
+            20% {
+                filter: hue-rotate(-45deg) saturate(300%) brightness(90%);
+                transform: translateX(-2px);
+            }
+            30% {
+                filter: hue-rotate(90deg) saturate(150%) brightness(200%);
+                transform: translateX(0);
+            }
+            40% {
+                filter: hue-rotate(-90deg) saturate(200%) brightness(50%);
+                transform: translateX(1px);
+            }
+            50% {
+                filter: hue-rotate(180deg) saturate(250%) brightness(100%);
+                transform: translateX(-1px);
+            }
+            100% {
+                filter: hue-rotate(0deg) saturate(100%);
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes rgbShift {
+            0% {
+                text-shadow: none;
+            }
+            25% {
+                text-shadow: 
+                    -2px 0 #ff0000,
+                    2px 2px #00ff00,
+                    4px -4px #0000ff;
+            }
+            50% {
+                text-shadow: 
+                    2px -2px #ff0000,
+                    -2px 2px #00ff00,
+                    -4px -4px #0000ff;
+            }
+            75% {
+                text-shadow: 
+                    4px 0 #ff0000,
+                    -4px -4px #00ff00,
+                    0 4px #0000ff;
+            }
+            100% {
+                text-shadow: none;
+            }
+        }
+
+        @keyframes melt {
+            0% {
+                transform: scaleY(1) translateY(0) skewX(0);
+                opacity: 1;
+                filter: blur(0px) hue-rotate(0deg) saturate(100%);
+            }
+            50% {
+                transform: scaleY(10) translateY(50vh) skewX(-5deg);
+                opacity: 0.7;
+                filter: blur(2px) hue-rotate(90deg) saturate(200%);
+            }
+            100% {
+                transform: scaleY(20) translateY(100vh) skewX(-10deg);
+                opacity: 0;
+                filter: blur(4px) hue-rotate(180deg) saturate(300%);
+            }
+        }
+
+        .melting {
+            animation: 
+                melt 1.5s cubic-bezier(.43,0,.17,1) forwards,
+                glitch 0.3s steps(1) infinite,
+                rgbShift 0.2s infinite;
+        }
+
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1001;
+            mix-blend-mode: overlay;
+            animation: glitch-background 1s steps(1) infinite;
+            opacity: 0.5;
+            background: linear-gradient(45deg, 
+                transparent 0%,
+                rgba(255, 0, 0, 0.2) 33%,
+                rgba(0, 255, 0, 0.2) 66%,
+                rgba(0, 0, 255, 0.2) 100%
+            );
+        }
+
+        @keyframes glitch-background {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-2px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-button" onclick="startMeltTransition()">Switch to Cyberpunk</button>
+
+    <div class="content-element">
+        <h2>Header Example</h2>
+        <p>This is some sample content that will melt away.</p>
+    </div>
+
+    <div class="content-element">
+        <img src="/api/placeholder/200/100" alt="placeholder">
+        <p>More content with an image</p>
+    </div>
+
+    <script>
+        function startMeltTransition() {
+            // Add glitch overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'glitch-overlay';
+            document.body.appendChild(overlay);
+
+            // Get all visible elements
+            const elements = Array.from(document.querySelectorAll('body > *')).filter(el => {
+                const style = window.getComputedStyle(el);
+                return style.display !== 'none' && style.visibility !== 'hidden' && !el.classList.contains('glitch-overlay');
+            });
+
+            // Create clones for melting effect
+            elements.forEach((element, index) => {
+                const rect = element.getBoundingClientRect();
+                if (rect.width === 0 || rect.height === 0) return;
+
+                const numSlices = Math.ceil(rect.width / 15); // Thinner slices for more glitch effect
+                
+                for (let i = 0; i < numSlices; i++) {
+                    const clone = document.createElement('div');
+                    clone.className = 'melt-clone';
+                    
+                    html2canvas(element).then(canvas => {
+                        const sliceWidth = rect.width / numSlices;
+                        
+                        clone.style.width = `${sliceWidth}px`;
+                        clone.style.height = `${rect.height}px`;
+                        clone.style.left = `${rect.left + (i * sliceWidth)}px`;
+                        clone.style.top = `${rect.top}px`;
+                        clone.style.backgroundImage = `url(${canvas.toDataURL()})`;
+                        clone.style.backgroundPosition = `-${i * sliceWidth}px 0`;
+                        clone.style.backgroundSize = `${rect.width}px ${rect.height}px`;
+                        
+                        document.body.appendChild(clone);
+                        
+                        // Randomize the delay slightly for more chaotic effect
+                        const randomDelay = i * 50 + index * 100 + (Math.random() * 200);
+                        setTimeout(() => {
+                            clone.classList.add('melting');
+                        }, randomDelay);
+                    });
+                }
+            });
+
+            // Hide original content
+            elements.forEach(element => {
+                element.style.visibility = 'hidden';
+            });
+
+            // Navigate to cyberpunk theme after animation
+            setTimeout(() => {
+                // Replace with your cyberpunk page URL
+                window.location.href = 'your-cyberpunk-page.html';
+            }, 2500);
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Melting Transition</title>
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            display: flex;
+            z-index: 1000;
+        }
+
+        .melt-strip {
+            height: 100%;
+            background: #000;
+            transform-origin: top;
+            opacity: 0;
+            flex: 1;
+        }
+
+        /* Glitch and melt animation */
+        @keyframes melt-and-glitch {
+            0% {
+                opacity: 1;
+                transform: scaleY(1) translateY(0);
+                filter: hue-rotate(0deg) brightness(1);
+            }
+            20% {
+                transform: scaleY(1.5) translateY(10vh);
+                filter: hue-rotate(90deg) brightness(1.5);
+            }
+            40% {
+                transform: scaleY(2) translateY(20vh);
+                filter: hue-rotate(180deg) brightness(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scaleY(4) translateY(100vh);
+                filter: hue-rotate(360deg) brightness(1.2);
+            }
+        }
+
+        /* Demo content styles */
+        .content {
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <button onclick="startTransition()">Switch to Cyberpunk</button>
+        <h1>Current Website</h1>
+        <p>This is some sample content that will transition to your cyberpunk theme.</p>
+    </div>
+
+    <script>
+        function createMeltingOverlay() {
+            const overlay = document.createElement('div');
+            overlay.className = 'transition-overlay';
+            
+            // Create 20 strips for the melting effect
+            const numStrips = 20;
+            
+            for (let i = 0; i < numStrips; i++) {
+                const strip = document.createElement('div');
+                strip.className = 'melt-strip';
+                
+                // Add animation with increasing delay for each strip
+                strip.style.animation = `melt-and-glitch 1.5s cubic-bezier(.43,0,.17,1) ${i * 50}ms forwards`;
+                
+                // Random color tint for each strip
+                const hue = Math.random() * 360;
+                strip.style.backgroundColor = `hsl(${hue}, 50%, 50%)`;
+                
+                overlay.appendChild(strip);
+            }
+            
+            document.body.appendChild(overlay);
+        }
+
+        function startTransition() {
+            createMeltingOverlay();
+            
+            // Navigate to cyberpunk page after animation
+            setTimeout(() => {
+                // Replace this URL with your cyberpunk page URL
+                window.location.href = 'themed_websites/cyberpunk_theme/intro.html';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Shift Transition</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .transition-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .rectangle {
+            position: absolute;
+            width: 0.2vw; /* Makes 500 rectangles across the screen */
+            height: 100vh;
+            background: transparent;
+            border-left: 1px solid transparent;
+            transition: transform 1s;
+        }
+
+        .rectangle::before,
+        .rectangle::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: 1px;
+            height: 100%;
+            mix-blend-mode: screen;
+        }
+
+        .rectangle::before {
+            border-left: 1px solid #f00; /* Red edge */
+            transform: translateX(-1px);
+        }
+
+        .rectangle::after {
+            border-left: 1px solid #0ff; /* Cyan edge */
+            transform: translateX(1px);
+        }
+
+        .rectangle.active {
+            transform: scaleY(0);
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="startTransition()" style="margin: 20px;">Switch Theme</button>
+    
+    <script>
+        function createRectangles() {
+            const container = document.createElement('div');
+            container.className = 'transition-container';
+            
+            for (let i = 0; i < 500; i++) {
+                const rectangle = document.createElement('div');
+                rectangle.className = 'rectangle';
+                rectangle.style.left = (i * 0.2) + 'vw';
+                container.appendChild(rectangle);
+            }
+            
+            document.body.appendChild(container);
+            return container;
+        }
+
+        function startTransition() {
+            const container = createRectangles();
+            const rectangles = container.getElementsByClassName('rectangle');
+            
+            // Trigger rectangles to move with random delays
+            Array.from(rectangles).forEach(rect => {
+                setTimeout(() => {
+                    rect.classList.add('active');
+                }, Math.random() * 1000); // Random delay between 0-1000ms
+            });
+
+            // Navigate to new page after transition
+            setTimeout(() => {
+                window.location.href = 'your-cyberpunk-page.html';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

@@ -803,9 +803,56 @@ properly.
 }
 
 
+
 h1.responsive-headline { text-align: left; font-size: 5em; margin-bottom: 2cm; text-decoration: underline; cursor: pointer;}
-h1.responsive-headline 
+h1.responsive-headline:hover { 
+   transform: translateY(-5px);
+}
 
 #hidden-content {
    display: none;
+}
+.transition-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   pointer-events: none;
+   z-index: 1000;
+}
+
+.rectangle {
+   position: absolute;
+   width: 0.2vw; /* Makes 500 rectangles across the screen */
+   height: 100vh;
+   background: transparent;
+   border-left: 1px solid transparent;
+   transition: transform 1s;
+}
+
+.rectangle::before,
+.rectangle::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: -1px;
+   width: 1px;
+   height: 100%;
+   mix-blend-mode: screen;
+}
+
+.rectangle::before {
+   border-left: 1px solid #f00; /* Red edge */
+   transform: translateX(-1px);
+}
+
+.rectangle::after {
+   border-left: 1px solid #0ff; /* Cyan edge */
+   transform: translateX(1px);
+}
+
+.rectangle.active {
+   transform: scaleY(0);
+   transform-origin: bottom;
 }

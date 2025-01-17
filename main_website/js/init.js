@@ -212,7 +212,40 @@ function toggleText(elementid) {
    }
  }
 
+/*----------------------------------------------------*/
+/*	Theme Switcher
+/*----------------------------------------------------*/
+function createRectangles() {
+   const container = document.createElement('div');
+   container.className = 'transition-container';
+   
+   for (let i = 0; i < 500; i++) {
+       const rectangle = document.createElement('div');
+       rectangle.className = 'rectangle';
+       rectangle.style.left = (i * 0.2) + 'vw';
+       container.appendChild(rectangle);
+   }
+   
+   document.body.appendChild(container);
+   return container;
+}
 
+function startTransition() {
+   const container = createRectangles();
+   const rectangles = container.getElementsByClassName('rectangle');
+   
+   // Trigger rectangles to move with random delays
+   Array.from(rectangles).forEach(rect => {
+       setTimeout(() => {
+           rect.classList.add('active');
+       }, Math.random() * 1000); // Random delay between 0-1000ms
+   });
+
+   // Navigate to new page after transition
+   setTimeout(() => {
+       window.location.href = 'themed_websites/cyberpunk_theme/intro.html';
+   }, 2000);
+}
 
 
 

@@ -9,8 +9,15 @@
     src: url('fonts/RussoOne-Regular.ttf') format('truetype'); /* Path to the font */
 }
 
+@font-face {
+    font-family: 'Cyberpunk'; /* Name for the font */
+    src: url('fonts/Cyberpunk-Regular.ttf') format('truetype'); /* Path to the font */
+}
 
-
+@font-face {
+    font-family: 'Eurostyle'; /* Name for the font */
+    src: url('fonts/EuroStyle-Normal.ttf') format('truetype'); /* Path to the font */
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -25,16 +32,16 @@ body {
 .navbar a {
     float: left;
     display: block;
-    color:var(--neon-blue);
-    font-family: 'Courier New', monospace;
+    color:var(--neon-pink);
+    font-family: 'Eurostyle';
     text-transform: uppercase;
     text-align: center;
     padding: 14px 50px;
     text-decoration: none;
 }
 .navbar a:hover {
-    background: var(--neon-blue);
-    color: #000;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
     box-shadow: 0 0 10px var(--neon-blue),
                0 0 20px var(--neon-blue);
 }
@@ -303,10 +310,10 @@ body {
 
 button {
     background: transparent;
-    color: var(--neon-blue);
-    border: 2px solid var(--neon-blue);
+    color: var(--neon-pink);
+    border: 2px solid var(--neon-pink);
     padding: 10px 20px;
-    font-family: 'Courier New', monospace;
+    font-family: 'Eurostyle';
     text-transform: uppercase;
     cursor: pointer;
     position: relative;
@@ -332,8 +339,8 @@ button:hover {
     z-index: 999;
     mix-blend-mode: overlay;}
 h1 {
-    font-family: 'RussoOne';
-    color: var(--neon-pink);
+    font-family: 'Cyberpunk';
+    color: yellow;
     text-align: center;
     font-size: 6em;
     margin: 20px 0;
@@ -396,19 +403,19 @@ h1:hover {
 }
 
 p {
-    font-family: 'Courier New' ;
-    color: var(--neon-blue);
+    font-family: 'Eurostyle'; ;
+    color: var(--neon-pink);
     line-height: 1.6;
     text-align: center;
     font-size: 1.5em;
-    margin: 10px 0;
+    margin: 10px 10px 10px 10 px;
     padding: 30px;
     transition: color 0.3s, box-shadow 0.3s;
 }
 
 p:hover {
-    color: var(--neon-pink);
-    text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 15px var(--neon-pink);
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
 }
 
 /* Floating Particles */

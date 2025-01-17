@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Button</title>
+  <style>
+    /* Global Styling */
+    body {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Button Styling */
+    .cyber-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 300px;
+      padding: 15px 20px;
+      border: 2px solid #00ffff; /* Neon border */
+      color: #00ffff; /* Neon text color */
+      font-family: 'Arial', sans-serif;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+
+    /* Hover effect */
+    .cyber-button:hover {
+      transform: scale(1.05); /* Slight zoom effect */
+      box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; /* Neon glow */
+    }
+
+    .cyber-button:hover::before {
+      background: linear-gradient(90deg, #00ffff, #ff00ff); /* Animated glow */
+    }
+
+    /* Placeholder text for the right side */
+    .placeholder-text {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <!-- Button Element -->
+  <div class="cyber-button">
+    <span>New Game</span>
+  </div>
+</body>
+</html>
