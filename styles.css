@@ -582,8 +582,13 @@ body {
   }
 
   .hero-media {
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: 24px;
+  }
+
+  .hero-photo-frame {
+    max-width: 100%;
+    width: 100%;
   }
 
   .section {
@@ -642,6 +647,11 @@ body {
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2.4rem;
+  }
+
+  .hero-photo-frame {
+    max-width: 100%;
+    border-radius: var(--radius-md);
   }
 
   .card {
