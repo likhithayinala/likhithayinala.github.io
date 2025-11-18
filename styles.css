@@ -288,6 +288,8 @@ body {
   max-width: 420px;
   background-color: transparent;
   padding: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   box-shadow: var(--shadow-soft);
   transform: rotate(-3deg);
   transition: transform 0.3s ease-out;
@@ -586,11 +588,6 @@ body {
     margin-top: 24px;
   }
 
-  .hero-photo-frame {
-    max-width: 100%;
-    width: 100%;
-  }
-
   .section {
     padding-inline: 20px;
     padding-top: 96px;
@@ -647,11 +644,6 @@ body {
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2.4rem;
-  }
-
-  .hero-photo-frame {
-    max-width: 100%;
-    border-radius: var(--radius-md);
   }
 
   .card {
