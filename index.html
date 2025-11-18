@@ -1,456 +1,822 @@
 <!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <title>Likhith Ayinala | Professional & Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-   <!--- Basic Page Needs
-   ================================================== -->
-   <meta charset="utf-8">
-	<title>Likhith Ayinala</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+    rel="stylesheet"
+  />
 
-   <!-- Mobile Specific Metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<!-- CSS
-    ================================================== -->
-   <link rel="stylesheet" href="main_website/css/default.css">
-	<link rel="stylesheet" href="main_website/css/layout.css">
-   <link rel="stylesheet" href="main_website/css/media-queries.css">
-   <link rel="stylesheet" href="main_website/css/magnific-popup.css">
-
-   <!-- Script
-   ================================================== -->
-	<script src="main_website/js/modernizr.js"></script>
-
-   <!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="main_website/favicon.ico" >
-
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <!-- grain-layer still in DOM but disabled in CSS -->
+  <div class="grain-layer"></div>
 
-   <!-- Header
-   ================================================== -->
-   <header id="home">
-
-      <nav id="nav-wrap">
-
-         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
-
-         <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-	         <li><a class="smoothscroll" href="#professional">Professional Work</a></li>
-             <li><a class="smoothscroll" href="#coursework">Hobbies</a></li>
-         </ul> <!-- end #nav -->
-
-      </nav> <!-- end #nav-wrap -->
-
-      <div class="row banner">
-         <div class="banner-text">
-            <h1 >I'm Likhith.</h1>
-            <h3>I am doing my masters in Electrical Engineering at <span>Columbia University</span>. 
-
-               I am interested in multi-modal AI systems (currently exploring agentic applications), with a focus on using these amazing algorithms to tackle social challenges.
-            <ul class="social">
-
-               <li><a href="https://mobile.twitter.com/likhith_lol"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="https://github.com/likhithayinala"><i class="fa fa-github"></i></a></li>
-               <li><a href="https://www.linkedin.com/in/likhith-ayinala-4ba7441b9/"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="https://www.instagram.com/rocketpenguin_25603/"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-         </div>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-avatar">
+        <!-- Replace this path with your local file if needed -->
+        <img src="assets/profile.jpg" alt="Portrait of Likhith Ayinala" class="brand-photo" />
       </div>
+      <div class="brand-text">
+        <span class="brand-name">Likhith Ayinala</span>
+        <span class="brand-tagline">Multi-modal AI · EE @ Columbia</span>
+      </div>
+    </div>
 
-      <p class="scrolldown">
-         <a class="smoothscroll" href="#professional"><i class="icon-down-circle"></i></a>
-      </p>
+    <nav class="nav">
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#professional">Professional Work</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+      </ul>
+    </nav>
+  </header>
 
-   </header> <!-- Header End -->
+  <main>
+    <!-- HERO / HOME -->
+    <section id="home" class="section hero" data-reveal>
+      <div class="hero-content">
+        <div class="hero-pill">Professional Portfolio</div>
+        <h1 class="hero-title">I'm Likhith.</h1>
+        <p class="hero-subtitle">
+          I am doing my masters in Electrical Engineering at Columbia University. I am interested in multi-modal and interpretable AI systems
+          (currently exploring agentic applications), with a focus on using these amazing algorithms to tackle social challenges.
+        </p>
 
-   <!-- Style Guide Section
-   ================================================== -->
-   <section id="professional" style="padding: 90px 0 72px; background: white; text-align:center">
-      <div class="row add-bottom">
-          <h1 class="responsive-headline" onclick="toggleText('education')">Education</h1>
-          <div id="education" class="hidden-content" style="display: none;" >
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Columbia University</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  MS in Electrical Engineering <br>
-                  Expected Dec 2025 <br>
-                  C.G.P.A: 3.7 <br>
-                  Honors: Tesla Scholar <br>
-               </p>
-            </div>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            </li>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Indian Institute of Technology</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  B.Tech in Electrical Engineering <br>
-                  Graduated May 2024 <br>
-                  C.G.P.A: 7.9 <br>
-               </p>
-            </div>
-         </li>
-
-            <hr style="width:30%;margin:0 auto;">
-            <br>
-         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="text-align: left;">FIITJEE</h2>
-            <p class="lead add-bottom" style="text-align: right;">
-              Class 11-12 <br>
-              March 2020 <br>
-              Percent: 94%
-            </p>
-         </div>
-         <hr style="width:30%;margin:0 auto;">
-         <br>
-         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="text-align: left;">Little Angels School</h2>
-            <p class="lead add-bottom" style="text-align: right;">
-              Class 10 <br>
-              March 2018 <br>
-              Percent: 92.4%
-            </p>
-         </div>
-            <hr>
-            <br>
+        <div class="hero-actions">
+          <a href="#professional" class="btn btn-primary">View professional work</a>
+          <a href="#hobbies" class="btn btn-ghost">Peek at hobbies</a>
         </div>
 
+        <div class="hero-meta">
+          <span>Based in New York · Tesla Scholar · Research & industry obsessed</span>
+        </div>
+      </div>
 
-          <h1 class="responsive-headline" onclick="toggleText('industry')">Industry Exp</h1>
-          <div id="industry" class="hidden-content" style="display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">CloudWise.AI</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                <strong>AI Intern</strong> <br>
-                <strong>Dec 2023 - Jan 2024</strong> <br>
-               </p>  
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Developed an LLM chatbot using Llama 3-7B and deployed it on AWS.<br> 
-               Trained and fine-tuned using QLoRA on DevOps documentation, AWS Test material, and price metrics.<br> 
-               Additionally, used context injection by creating a ChromaDB vector database to improve answer quality.</p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Bosch Research and Technology Center </h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                <strong>Project Trainee</strong> <br>
-                <strong>Jul 2022 - Oct 2022</strong> <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Developed from scratch object tracking methods using a Siamese network with VGG-16, Resnet-50, CaffeNet, and integrated Triplet-Loss. <br>
-               Built various Nanonet models from scratch.<br>
-               Trained and tested various object tracking algorithms like BoTSORt, ByteSoRT, and OCSort on MOT15, MOT17, and KITTI datasets.</p>
-            <hr>
-            <br>
-         </div>
-          <h1 class="responsive-headline" onclick="toggleText('research')">Research Experience</h1>
-          <div id="research" class="hidden-content" style="display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Audio Zoom</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  <strong>MITACS Intern under Dr. Peter F Driessen</strong> <br>
-                  <strong>Victoria, BC, Canada</strong> <br>
-                  <strong>May 2023 - Aug 2023</strong> <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Worked on directional audio separation for multiple speakers.<br>
-               Developed a directional hearing deep learning model based on transformers and frost beamforming to isolate a single
-               audio from up to 8 sources.<br>
-               Created the world’s first real-world, recorded multi-speaker dataset for directional hearing with SI-SNR improvement of 3.2dB on average.</p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Indoor Localization</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  Student Researcher under Dr. M.P.R.Sai Kiran <br>
-                Jodhpur, India <br>
-                May 2022 - Jan 2024 <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Developed several SoTA distance estimation models using LSTM and Extended Kalman Filter with an error of 0.5%.<br>
-               Developed an Indoor Localization dataset with over 25 km of data and multiple sensor readings from over 30 participants.<br>
-               <strong>Publications:</strong> Distance Estimation Framework for PDR Based Indoor Localization Using RNNs (2023 SoftCOM)<br>
-               A Novel Distance Tracking Framework for Estimating User Position in MmWave WLANs. (2024 IEEE WCNC)
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Voice Spoofing Detection</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                Student Researcher under Dr. Mayank Vatsa, Dr. Richa Singh <br>
-                Jodhpur, India <br>
-                Sep 2022 - Oct 2023 <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Created a frontend feature extraction algorithm based on discrete wavelet transformation along with a unique crossed attention mechanism to distinguish fake audio.<br>
-               Worked on the development of the BhashaBluff dataset, the first dataset in Hindi for fake audio by generating multiple fake audio and partial audio using various models like low TTS-HifiGan, FastSpeech-HifiGan, Google Cloud Standard Voice, Google Cloud Neural2 Voice.<br>
-               This dataset has been patented.<br>
-               <strong>Publications:</strong> Bhashabluff
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Detection of Hate Speech in Online platforms</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                Student Researcher under Dr. Mayank Vatsa, Dr. Richa Singh <br>
-                Jodhpur, India <br>
-                Dec 2023 - Mar 2024 <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Developed a unique training algorithm and model to create a language-agnostic deep-learning model to detect hate speech in AI-generated audio using SONAR and SeamlessM4T encoders.<br>
-               Used zero-shot multi-modal vector embedding to classify unseen language audios as hate speech.<br>
-               Obtained accuracy improvement over 5% for seen and unseen languages.<br>
-               <strong>Publications:</strong> Leveraging Multi-modal Embeddings for Zero-shot Hate Speech Detection in Audios (Submitted to ACL 2025)
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Digital Bio-Signature of a Human</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  Student Researcher under Dr. Suchetana Chakraborty, Dr. Dipanjan Roy <br>
-                  Jodhpur, India <br>
-                  November 2021 - May 2022 <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-            Developed a machine learning model based on Hidden Markov Models and random forest regression to identify a person based on their digital metrics like heart rate, calories consumed etc. <br>
-            Further, using the same front-end architecture, accurately classified 95%, if a person was exhibiting signs of mental distress.
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Material identification via Sensor data</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  Student Researcher under Dr. Amit Bharadwaj <br>
-                  Jodhpur, India <br>
-                  March 2022 - June 2022 <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Built an extensive database consisting of various materials collected using DAQ from various sensors like ATI Nano17, force sensors, microphones etc, to collect conditions of the materials. <br>
-               Used advanced filtering and signal processing and adapted temporal and spectral features to obtain the optimal signal sequence and trained several models like Bayesian classifiers.<br>
-            </p>
-            <hr>
-            <br>
+      <div class="hero-media" aria-hidden="true">
+        <!-- Same local photo, larger -->
+        <div class="hero-photo-frame">
+          <img src="assets/profile.jpg" alt="Portrait of Likhith Ayinala" class="hero-photo" />
+        </div>
       </div>
-          <h1 class="responsive-headline" onclick="toggleText('projects')">Projects</h1>
-         <div id="projects" class="hidden-content" style="display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Do LLM's plan ahead?</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  Course Project for EECS6994 GenAI and ModernDL. <br>
-                  Columbia University <br>
-                  December 2024 <br>
-               </p>
+    </section>
+
+    <!-- PROFESSIONAL -->
+    <section id="professional" class="section section-tight">
+      <header class="section-header" data-reveal>
+        <p class="section-kicker">Track record</p>
+        <h2>Professional Work</h2>
+        <p class="section-subtitle">
+          A snapshot of education, industry experience, research, projects, skills, teaching, and publications.
+        </p>
+      </header>
+
+      <!-- Education -->
+      <section class="block" data-reveal>
+        <div class="block-header">
+          <h3>Education</h3>
+          <span class="block-tag">Academic journey</span>
+        </div>
+        <div class="card-grid">
+          <!-- Columbia -->
+          <article class="card">
+            <header class="card-header">
+              <h4>Columbia University</h4>
+              <span class="card-location">New York, USA</span>
+            </header>
+            <div class="card-body">
+              <p>MS in Electrical Engineering</p>
+              <p>Expected Dec 2025</p>
+              <p>C.G.P.A: 3.9</p>
+              <p>Honors: Tesla Scholar</p>
             </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               This project aims to provide solutions and insights into how LLMs work and predict future tokens. We use these findings to early stop an LLM in case the answer doesn't align with the given specifications. In our project specifically, this task is for preventing LLM refusal and unsafe answers.
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Multi Agent Reinforcement Learning with Rock-Paper-Scissor</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  Course Project for Reinforcement Learning <br>
-                  Columbia University <br>
-                  December 2024 <br>
-               </p>
+          </article>
+
+          <!-- IIT -->
+          <article class="card">
+            <header class="card-header">
+              <h4>Indian Institute of Technology</h4>
+              <span class="card-location">Jodhpur, India</span>
+            </header>
+            <div class="card-body">
+              <p>B.Tech in Electrical Engineering</p>
+              <p>Graduated May 2024</p>
+              <p>C.G.P.A: 7.9</p>
             </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               We provide a library for a multi-species multi-agent reinforcement learning (MARL) using Deep Q-Networks (DQN) applied to the battle arena game of Rock-Paper-Scissors. The project remains the same as before except it is for the Course for Reinforcement Learning.
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Optimizing MLP Kernels</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  Course Project for Heterogenous Computing <br>
-                  Columbia University <br>
-                  December 2024 <br>
-               </p>
+          </article>
+
+          <!-- FIITJEE -->
+          <article class="card card-compact">
+            <header class="card-header">
+              <h4>FIITJEE</h4>
+            </header>
+            <div class="card-body">
+              <p>Class 11-12</p>
+              <p>March 2020</p>
+              <p>Percent: 94%</p>
             </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               This project involves implementing various versions of a Multilayer Perceptron (MLP) kernel to improve execution time while maintaining accuracy. We explored different optimization techniques such as loop unrolling, vectorization, and parallelization to achieve significant performance gains.
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">oneM2M International Hackathon</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  Mentor: Dr. Arun Kumar Singh <br>
-                  KETI, South Korea <br>
-                  September 2022 - November 2022 <br>
-               </p>
+          </article>
+
+          <!-- Little Angels -->
+          <article class="card card-compact">
+            <header class="card-header">
+              <h4>Little Angels School</h4>
+            </header>
+            <div class="card-body">
+              <p>Class 10</p>
+              <p>March 2018</p>
+              <p>Percent: 92.4%</p>
             </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Built an IoT Solution for old age homes to manage and deliver medication that uses oneM2M platform. Achieved 10th position globally.
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Robocon Core Team Member</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  ABU Robocon <br>
-                  IIT Jodhpur Robotics Society <br>
-                  December 2021 - May 2022 <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Worked on the entire electronics framework and integrated all the sensors, motors, mechanisms, processing system in order to allow the robot to work. Developed a ball tracking mechanism to be used for the problem statement. Sensor Fusion for Robot Localization and navigation in ROS. Object detection for problem statement.
-            </p>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <hr style="width:50%;margin:0 auto;">
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="text-align: left;">Age and Gender Detection Algorithm</h2>
-               <p class="lead add-bottom" style="text-align: right;">
-                  Inter IIT <br>
-                  IIT Kharagpur <br>
-                  April 2022 <br>
-               </p>
-            </div>
-            <p class="lead add-bottom" style="text-align: left;">
-               Developed a model to identify age and gender of people from CCTV footage. Proposed model to use body and face to detect the age and gender in order to increase information gain. Used collaborative learning on both the age and gender detection to boost information transfer and achieve good accuracy on both.
-            </p>
-            <hr>
-            <br>
-         </div>
-         <h1 class="responsive-headline" onclick="toggleText('skills')">Skills</h1>
-          <div id="skills" class="hidden-content" style="display: none; text-align: left;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="width: 150px;">Languages:</h2>
-               <p>Python, C++, JavaScript, MATLAB, LaTeX, HTML, CSS</p>
-            </div>
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="width: 150px;">Frameworks:</h2>
-               <p style="text-align: right;">Scikit, NLTK, SpaCy, TensorFlow, Simulink, Keras, Django, React, ROS, HuggingFace, LangChain,<br> Pytorch, PyCUDA, PySpark, MySQL</p>
-            </div>
-            <br>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-               <h2 style="width: 150px;">Platforms:</h2>
-               <p>Linux, Web, Windows, Arduino, Raspberry, AWS, Android Studio, OneM2M, Zigbee, LoRa, IEEE 802.11xx</p>
-            </div>
-            <hr>
-            <br> 
-         </div>
-         <h1 class="responsive-headline" onclick="toggleText('awards')">Honors and Awards</h1>
-          <div id="awards" class="hidden-content" style="display: none;">
-            <ul style="text-align: left;">
-               <li>Tesla Scholar, MS Electrical Engineering, Columbia University</li>
-               <li>Technical Programme Committee member for 2024 IEEE Wireless Communications and Networking Conference.</li>
-               <li>Head at Student Well-Being committee’24, IIT Jodhpur.</li>
-               <li>Head at Technical Events, Prometeo’23, IIT Jodhpur.</li>
-               <li>Assistant Head at Student Well-Being committee’23, IIT Jodhpur.</li>
-               <li>Student Guide at Student Well-Being committee’22, IIT Jodhpur.</li>
-               <li>2nd position for IoT competition at IIT Jodhpur for developing a smart health screening mechanism.</li>
-               <li>2nd position for Think-a-thon for developing an innovative speed control mechanism for cars to abide speed limit.</li>
-               <li>Co-ordinator for IoT of Robotics Society and Astronomy Society, IIT Jodhpur.</li>
-            </ul>
-          </div>
-      </div>
+          </article>
+        </div>
       </section>
-   <!-- Hobbies Section
-   ================================================== -->
-   <section id="coursework" style="padding: 90px 0 72px; background: #f9f9f9; text-align:center">
-      <div class="row add-bottom">
-         <h1 class="responsive-headline" onclick="toggleText('hobbiesexpand')">Hobbies</h1>
-         <br> 
-         <div id="hobbiesexpand" class="hidden-content" style="display: none;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="text-align: left;">Film Photography</h2>
-            <p class="lead add-bottom" style="text-align: right; max-width: 60%;">
-               Photography is amazing, it captures moments that are otherwise lost. Film photography adds more depth to the process and makes it more personal.
+
+      <!-- Skills -->
+      <section class="block" data-reveal>
+        <div class="block-header">
+          <h3>Skills</h3>
+          <span class="block-tag">Tooling & platforms</span>
+        </div>
+        <div class="skills-layout">
+          <div class="skills-column">
+            <h4>Languages:</h4>
+            <p>Python, C++, JavaScript, MATLAB, LaTeX, HTML, CSS</p>
+          </div>
+          <div class="skills-column">
+            <h4>Frameworks:</h4>
+            <p>
+              Scikit, NLTK, SpaCy, TensorFlow, Simulink, Keras, Django, React, ROS, HuggingFace, LangChain, Pytorch,
+              PyCUDA, PySpark, MySQL
             </p>
           </div>
-          <hr style="width:50%;margin:0 auto;">
-          <br>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="text-align: left;">Crocheting</h2>
-            <p class="lead add-bottom" style="text-align: right; max-width: 60%;">
-               Crocheting has been an escape for me. It's a way to relax and create something beautiful at the same time.
+          <div class="skills-column">
+            <h4>Platforms:</h4>
+            <p>
+              Linux, Web, Windows, Arduino, Raspberry, AWS, Android Studio, OneM2M, Zigbee, LoRa, IEEE 802.11xx
             </p>
           </div>
-          <hr style="width:50%;margin:0 auto;">
-          <br>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="text-align: left;">Gaming</h2>
-            <p class="lead add-bottom" style="text-align: right; max-width: 60%;">
-               Games are gateways to alternate worlds. My current favourite is Cyberpunk 2077. P.S. There is an easter egg hidden in this theme.
-            </p>
-            
+        </div>
+      </section>
+
+      <!-- Industry Experience (including C3.ai) -->
+      <section class="block" data-reveal>
+        <div class="block-header">
+          <h3>Industry Experience</h3>
+          <span class="block-tag">Applied work</span>
+        </div>
+        <div class="card-stack">
+          <!-- C3.ai -->
+          <article class="card card-featured">
+            <header class="card-header">
+              <div>
+                <h4>C3.ai</h4>
+                <span class="card-role">Data Science Intern</span>
+              </div>
+              <div class="card-meta">
+                <span>Redwood City, CA</span>
+                <span>May 2025 – Aug 2025</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Built two iterations of a highly interpretable generalized valuation model using multi-encoder,
+                expert-routing concepts, and comparables, enabling zero-shot transfer across all CA counties and
+                replacing dozens of local models.
+              </p>
+              <p>
+                Reduced model-release cycles from 4 weeks → 1 hour by consolidating workflows into a single extensible
+                modeling framework; designed a feature-stability module reducing valuation fluctuations by 50% across pilots.
+              </p>
+              <p>
+                Owned end-to-end development: large-scale data preparation, model design, evaluation (MAPE/MAE/PRD/COD),
+                failure-mode analysis, and deployment.
+              </p>
+            </div>
+          </article>
+
+          <!-- CloudWise -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>CloudWise.AI</h4>
+                <span class="card-role">AI Intern</span>
+              </div>
+              <div class="card-meta">
+                <span>Dec 2023 - Jan 2024</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>Developed an LLM chatbot using Llama 3-7B and deployed it on AWS.</p>
+              <p>Trained and fine-tuned using QLoRA on DevOps documentation, AWS Test material, and price metrics.</p>
+              <p>
+                Additionally, used context injection by creating a ChromaDB vector database to improve answer quality.
+              </p>
+            </div>
+          </article>
+
+          <!-- Bosch -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Bosch Research and Technology Center</h4>
+                <span class="card-role">Project Trainee</span>
+              </div>
+              <div class="card-meta">
+                <span>Jul 2022 - Oct 2022</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Developed from scratch object tracking methods using a Siamese network with VGG-16, Resnet-50, CaffeNet,
+                and integrated Triplet-Loss.
+              </p>
+              <p>Built various Nanonet models from scratch.</p>
+              <p>
+                Trained and tested various object tracking algorithms like BoTSORt, ByteSoRT, and OCSort on MOT15,
+                MOT17, and KITTI datasets.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Research Experience -->
+      <section class="block" data-reveal>
+        <div class="block-header">
+          <h3>Research Experience</h3>
+          <span class="block-tag">Academic & lab work</span>
+        </div>
+        <div class="card-stack">
+          <!-- Spatial Audio Editing -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Spatial Audio Editing</h4>
+                <span class="card-role">Student Researcher under Dr. Nima Mesgarani</span>
+              </div>
+              <div class="card-meta">
+                <span>New York, NY</span>
+                <span>Jan 2025 – May 2025</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+               Built a spatial-audio generation pipeline that combines audio codecs with visual or trajectory cues to create realistic multi-channel spatial effects. Curated and prepared large audio-visual datasets, extracted object motion trajectories, and trained transformer-based models to predict spatial filters conditioned on movement. Implemented a codec-driven generation approach inspired by SpatialCodec and modern RVQ-tokenized audio models, producing multi-channel outputs that preserve directionality, depth, and spatial coherence.
+              </p>
+            </div>
+          </article>
+
+          <!-- Energy-Based and Flow-Matching Models -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Energy-Based and Flow-Matching Models</h4>
+                <span class="card-role">Student Researcher @ CRIS Lab </span>
+              </div>
+              <div class="card-meta">
+                <span>New York, NY</span>
+                <span>Jan 2025 – May 2025</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Conducted focused research on Energy-Based Models, analyzing how they learn data manifolds and how their stability and convergence compare to flow-based models. Implemented equilibrium-propagation-inspired training loops with sparse interactions and regularization, and ran scaling experiments to study the effects of model size and noise on energy landscapes. Built reproducible PyTorch pipelines for training, sampling, and visualization, producing a clear evaluation of EBM strengths, limitations, and their relationship to flow-based approaches.
+              </p>
+            </div>
+          </article>
+
+          <!-- Audio Zoom -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Audio Zoom</h4>
+                <span class="card-role">MITACS Intern under Dr. Peter F Driessen</span>
+              </div>
+              <div class="card-meta">
+                <span>Victoria, BC, Canada</span>
+                <span>May 2023 - Aug 2023</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>Worked on directional audio separation for multiple speakers.</p>
+              <p>
+                Developed a directional hearing deep learning model based on transformers and frost beamforming to
+                isolate a single audio from up to 8 sources.
+              </p>
+              <p>
+                Created the world’s first real-world, recorded multi-speaker dataset for directional hearing with
+                SI-SNR improvement of 3.2dB on average.
+              </p>
+            </div>
+          </article>
+
+          <!-- Indoor Localization -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Indoor Localization</h4>
+                <span class="card-role">Student Researcher under Dr. M.P.R.Sai Kiran</span>
+              </div>
+              <div class="card-meta">
+                <span>Jodhpur, India</span>
+                <span>May 2022 - Jan 2024</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Developed several SoTA distance estimation models using LSTM and Extended Kalman Filter with an error
+                of 0.5%.
+              </p>
+              <p>
+                Developed an Indoor Localization dataset with over 25 km of data and multiple sensor readings from over
+                30 participants.
+              </p>
+              <p>
+                <span class="publication-highlight">Publications:</span> Distance Estimation Framework for PDR Based Indoor Localization Using RNNs (2023 SoftCOM)
+                A Novel Distance Tracking Framework for Estimating User Position in MmWave WLANs. (2024 IEEE WCNC)
+              </p>
+            </div>
+          </article>
+
+          <!-- Voice Spoofing -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Voice Spoofing Detection</h4>
+                <span class="card-role">Student Researcher under Dr. Mayank Vatsa, Dr. Richa Singh</span>
+              </div>
+              <div class="card-meta">
+                <span>Jodhpur, India</span>
+                <span>Sep 2022 - Oct 2023</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Created a frontend feature extraction algorithm based on discrete wavelet transformation along with a
+                unique crossed attention mechanism to distinguish fake audio.
+              </p>
+              <p>
+                Worked on the development of the BhashaBluff dataset, the first dataset in Hindi for fake audio by
+                generating multiple fake audio and partial audio using various models like low TTS-HifiGan,
+                FastSpeech-HifiGan, Google Cloud Standard Voice, Google Cloud Neural2 Voice.
+              </p>
+              <p>This dataset has been patented.</p>
+              <p><span class="publication-highlight">Publications:</span> Bhashabluff</p>
+            </div>
+          </article>
+
+          <!-- Hate Speech -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Detection of Hate Speech in Online platforms</h4>
+                <span class="card-role">Student Researcher under Dr. Mayank Vatsa, Dr. Richa Singh</span>
+              </div>
+              <div class="card-meta">
+                <span>Jodhpur, India</span>
+                <span>Dec 2023 - Mar 2024</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Developed a unique training algorithm and model to create a language-agnostic deep-learning model to
+                detect hate speech in AI-generated audio using SONAR and SeamlessM4T encoders.
+              </p>
+              <p>Used zero-shot multi-modal vector embedding to classify unseen language audios as hate speech.</p>
+              <p>Obtained accuracy improvement over 5% for seen and unseen languages.</p>
+              <p>
+                <span class="publication-highlight">Publications:</span> Leveraging Multi-modal Embeddings for Zero-shot Hate Speech Detection in Audios (Submitted
+                to ACL 2025)
+              </p>
+            </div>
+          </article>
+
+          <!-- Digital Bio-Signature -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Digital Bio-Signature of a Human</h4>
+                <span class="card-role">Student Researcher under Dr. Suchetana Chakraborty, Dr. Dipanjan Roy</span>
+              </div>
+              <div class="card-meta">
+                <span>Jodhpur, India</span>
+                <span>November 2021 - May 2022</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Developed a machine learning model based on Hidden Markov Models and random forest regression to
+                identify a person based on their digital metrics like heart rate, calories consumed etc.
+              </p>
+              <p>
+                Further, using the same front-end architecture, accurately classified 95%, if a person was exhibiting
+                signs of mental distress.
+              </p>
+            </div>
+          </article>
+
+          <!-- Material Identification -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Material identification via Sensor data</h4>
+                <span class="card-role">Student Researcher under Dr. Amit Bharadwaj</span>
+              </div>
+              <div class="card-meta">
+                <span>Jodhpur, India</span>
+                <span>March 2022 - June 2022</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Built an extensive database consisting of various materials collected using DAQ from various sensors like
+                ATI Nano17, force sensors, microphones etc, to collect conditions of the materials.
+              </p>
+              <p>
+                Used advanced filtering and signal processing and adapted temporal and spectral features to obtain the
+                optimal signal sequence and trained several models like Bayesian classifiers.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+     
+
+      <!-- Projects -->
+      <section class="block" data-reveal>
+        <div class="block-header">
+          <h3>Projects</h3>
+          <span class="block-tag">Coursework & competitions</span>
+        </div>
+        <div class="card-stack">
+          <!-- Do LLMs plan ahead? -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Do LLM's plan ahead?</h4>
+                <span class="card-role">Course Project for EECS6994 GenAI and ModernDL.</span>
+              </div>
+              <div class="card-meta">
+                <span>Columbia University</span>
+                <span>December 2024</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                This project aims to provide solutions and insights into how LLMs work and predict future tokens. We use
+                these findings to early stop an LLM in case the answer doesn't align with the given specifications. In
+                our project specifically, this task is for preventing LLM refusal and unsafe answers.
+              </p>
+            </div>
+          </article>
+
+          <!-- Multi Agent RL -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Multi Agent Reinforcement Learning with Rock-Paper-Scissor</h4>
+                <span class="card-role">Course Project for Reinforcement Learning</span>
+              </div>
+              <div class="card-meta">
+                <span>Columbia University</span>
+                <span>December 2024</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                We provide a library for a multi-species multi-agent reinforcement learning (MARL) using Deep
+                Q-Networks (DQN) applied to the battle arena game of Rock-Paper-Scissors. The project remains the same
+                as before except it is for the Course for Reinforcement Learning.
+              </p>
+            </div>
+          </article>
+
+          <!-- Optimizing MLP Kernels -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Optimizing MLP Kernels</h4>
+                <span class="card-role">Course Project for Heterogenous Computing</span>
+              </div>
+              <div class="card-meta">
+                <span>Columbia University</span>
+                <span>December 2024</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                This project involves implementing various versions of a Multilayer Perceptron (MLP) kernel to improve
+                execution time while maintaining accuracy. We explored different optimization techniques such as loop
+                unrolling, vectorization, and parallelization to achieve significant performance gains.
+              </p>
+            </div>
+          </article>
+
+          <!-- Scaling Energy Based Models -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Scaling Energy Based Models using Sparse Networks</h4>
+                <span class="card-role">Course Project for Sparse and High Dim Data with Low Dim Models</span>
+              </div>
+              <div class="card-meta">
+                <span>Columbia University</span>
+                <span>2024</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Implemented Lasso-like regularization by restricting the number of connections across groups in Energy 
+                Based Models (EBMs) to improve training efficiency and performance.
+              </p>
+              <p>
+                Model was trained in half the number of epochs as regular EBM models with 10% improvement in performance, 
+                demonstrating the effectiveness of sparse network architectures for scaling EBMs.
+              </p>
+            </div>
+          </article>
+
+          <!-- Learnable Audio Frontend -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Learnable Audio Frontend using Wavelet Transform</h4>
+                <span class="card-role">Student Researcher under Dr. Mayank Vatsa, Dr. Richa Singh</span>
+              </div>
+              <div class="card-meta">
+                <span>Jodhpur, India</span>
+                <span>Sep 2022 - Oct 2023</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Developed a novel learnable audio frontend using Wavelet transform to separate frequency ranges and 
+                improve performance in feature extraction tasks.
+              </p>
+              <p>
+                Achieved significant improvements in keyword detection and object classification by leveraging 
+                multi-scale frequency decomposition through wavelet-based architecture.
+              </p>
+            </div>
+            </article>
+
+          <!-- oneM2M Hackathon -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>oneM2M International Hackathon</h4>
+                <span class="card-role">Mentor: Dr. Arun Kumar Singh</span>
+              </div>
+              <div class="card-meta">
+                <span>KETI, South Korea</span>
+                <span>September 2022 - November 2022</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Built an IoT Solution for old age homes to manage and deliver medication that uses oneM2M platform.
+                Achieved 10th position globally.
+              </p>
+            </div>
+          </article>
+
+          <!-- Robocon -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Robocon Core Team Member</h4>
+                <span class="card-role">ABU Robocon · IIT Jodhpur Robotics Society</span>
+              </div>
+              <div class="card-meta">
+                <span>December 2021 - May 2022</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Worked on the entire electronics framework and integrated all the sensors, motors, mechanisms, processing
+                system in order to allow the robot to work. Developed a ball tracking mechanism to be used for the
+                problem statement. Sensor Fusion for Robot Localization and navigation in ROS. Object detection for
+                problem statement.
+              </p>
+            </div>
+          </article>
+
+          <!-- Age & Gender -->
+          <article class="card">
+            <header class="card-header">
+              <div>
+                <h4>Age and Gender Detection Algorithm</h4>
+                <span class="card-role">Inter IIT · IIT Kharagpur</span>
+              </div>
+              <div class="card-meta">
+                <span>April 2022</span>
+              </div>
+            </header>
+            <div class="card-body">
+              <p>
+                Developed a model to identify age and gender of people from CCTV footage. Proposed model to use body and
+                face to detect the age and gender in order to increase information gain. Used collaborative learning on
+                both the age and gender detection to boost information transfer and achieve good accuracy on both.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Teaching & Assistantships -->
+      <section class="block" data-reveal>
+        <div class="block-header">
+          <h3>Teaching & Assistantships</h3>
+          <span class="block-tag">Columbia University</span>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <p>Teaching Assistant: Reinforcement Learning (Fall 2025)</p>
+            <p>Teaching Assistant: Applied Data Science (Spring 2025)</p>
+            <p>Course Assistant: Big Data Analysis II (Spring 2025)</p>
           </div>
-          <hr style="width:50%;margin:0 auto;">
-            <br>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="text-align: left;">Reading</h2>
-            <p class="lead add-bottom" style="text-align: right; max-width: 60%;">
-               I love reading books, especially in the genres of science fiction, fantasy, and crime. Agatha Christie and Isaac Asimov are some of my favorite authors.
+        </div>
+      </section>
+
+      <!-- Honors and Awards -->
+      <section class="block" data-reveal>
+        <div class="block-header">
+          <h3>Honors and Awards</h3>
+          <span class="block-tag">Recognition</span>
+        </div>
+        <ul class="pill-list">
+          <li>Tesla Scholar, MS Electrical Engineering, Columbia University</li>
+          <li>Technical Programme Committee member for 2024 IEEE Wireless Communications and Networking Conference.</li>
+          <li>Head at Student Well-Being committee’24, IIT Jodhpur.</li>
+          <li>Head at Technical Events, Prometeo’23, IIT Jodhpur.</li>
+          <li>Assistant Head at Student Well-Being committee’23, IIT Jodhpur.</li>
+          <li>Student Guide at Student Well-Being committee’22, IIT Jodhpur.</li>
+          <li>
+            2nd position for IoT competition at IIT Jodhpur for developing a smart health screening mechanism.
+          </li>
+          <li>
+            2nd position for Think-a-thon for developing an innovative speed control mechanism for cars to abide speed
+            limit.
+          </li>
+          <li>Co-ordinator for IoT of Robotics Society and Astronomy Society, IIT Jodhpur.</li>
+        </ul>
+      </section>
+
+      <!-- Publications -->
+      <section class="block" data-reveal>
+        <div class="block-header">
+          <h3>Publications</h3>
+          <span class="block-tag">Selected</span>
+        </div>
+        <ul class="pub-list">
+          <li>Interspeech 2025: Zero-shot hate speech detection via multimodal embeddings.</li>
+          <li>WCNC 2024: A Novel Distance Tracking Framework for Estimating User Position in MmWave WLANs.</li>
+          <li>Softcom 2023: Distance Estimation Framework for PDR Based Indoor Localization Using RNNs.</li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies" class="section section-alt">
+      <header class="section-header" data-reveal>
+        <h2>Hobbies</h2>
+        <p class="section-subtitle">
+          The part that keeps you vaguely sane.
+        </p>
+      </header>
+
+      <div class="card-grid" data-reveal>
+        <!-- Film Photography -->
+        <article class="card">
+          <header class="card-header">
+            <h4>Film Photography</h4>
+          </header>
+          <div class="card-body">
+            <p>
+              Photography is amazing, it captures moments that are otherwise lost. Film photography adds more depth to
+              the process and makes it more personal.
             </p>
           </div>
-          <hr style="width:50%;margin:0 auto;">
-          <br>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="text-align: left;">Cooking</h2>
-            <p class="lead add-bottom" style="text-align: right; max-width: 60%;">
-               This is something I started recently as a way to relax and unwind. I love trying out new recipes and experimenting with different cuisines.
+        </article>
+
+        <!-- Crocheting -->
+        <article class="card">
+          <header class="card-header">
+            <h4>Crocheting</h4>
+          </header>
+          <div class="card-body">
+            <p>
+              Crocheting has been an escape for me. It's a way to relax and create something beautiful at the same time.
             </p>
           </div>
-         <hr>
-         <br>
+        </article>
+
+        <!-- Gaming -->
+        <article class="card">
+          <header class="card-header">
+            <h4>Gaming</h4>
+          </header>
+          <div class="card-body">
+            <p>
+              Games are gateways to alternate worlds. My current favourite is Cyberpunk 2077. P.S. There is an easter
+              egg hidden in this theme.
+            </p>
+          </div>
+        </article>
+
+        <!-- Reading -->
+        <article class="card">
+          <header class="card-header">
+            <h4>Reading</h4>
+          </header>
+          <div class="card-body">
+            <p>
+              I love reading books, especially in the genres of science fiction, fantasy, and crime. Agatha Christie and
+              Isaac Asimov are some of my favorite authors.
+            </p>
+          </div>
+        </article>
+
+        <!-- Cooking -->
+        <article class="card">
+          <header class="card-header">
+            <h4>Cooking</h4>
+          </header>
+          <div class="card-body">
+            <p>
+              This is something I started recently as a way to relax and unwind. I love trying out new recipes and
+              experimenting with different cuisines.
+            </p>
+          </div>
+        </article>
       </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span>@likhithayinala</span>
+        <span>Clean Theme</span>
       </div>
-   </section>
-   
-   <!-- footer
-   ================================================== -->
-   <footer>
-
-      <div class="row">
-
-         <div class="twelve columns">
-            <ul class="copyright">
-               <li>@likhithayinala</li>
-                    <li><a class="themebutton" onclick="startTransition()" style="color: inherit; cursor: pointer;" onmouseover="this.style.color='#00fff9'" onmouseout="this.style.color='inherit'">Theme</a> from <a href="http://www.styleshout.com/" title="Styleshout" target="_blank">Styleshout</a></li>
-            </ul>
-            
-         </div>
+      <div class="footer-right">
+        <a href="mailto:la3073@columbia.edu">Email</a>
+        <a href="https://likhithayinala.github.io" target="_blank" rel="noreferrer">Portfolio</a>
+        <a href="https://github.com/likhithayinala" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/likhith-ayinala-4ba7441b9/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
+    </div>
+  </footer>
 
-   </footer> <!-- Footer End-->
+  <script>
+    // Mobile nav
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('is-open');
+      navLinks.classList.toggle('is-open');
+    });
 
-   <!-- Java Script
-   ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="main_website/js/jquery-1.10.2.min.js"><\/script>')</script>
-   <script type="text/javascript" src="main_website/js/jquery-migrate-1.2.1.min.js"></script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        navLinks.classList.remove('is-open');
+        navToggle.classList.remove('is-open');
+      });
+    });
 
-   <script src="main_website/js/jquery.flexslider.js"></script>
-   <script src="main_website/js/waypoints.js"></script>
-   <script src="main_website/js/jquery.fittext.js"></script>
-   <script src="main_website/js/magnific-popup.js"></script>
-   <script src="main_website/js/doubletaptogo.js"></script>
-   <script src="main_website/js/spin.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-   <script src="main_website/js/init.js"></script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
 
+    document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+  </script>
 </body>
-
 </html>
