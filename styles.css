@@ -278,6 +278,41 @@ body {
   color: var(--text-muted);
 }
 
+.hero-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.hero-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  transition:
+    transform 0.15s ease-out,
+    background-color 0.15s ease-out,
+    border-color 0.15s ease-out,
+    color 0.15s ease-out;
+}
+
+.hero-social a:hover {
+  transform: translateY(-2px);
+  background-color: var(--bg-soft);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.hero-social svg {
+  width: 18px;
+  height: 18px;
+}
+
 .hero-media {
   display: flex;
   justify-content: flex-end;
